@@ -58,7 +58,7 @@ const storeRequest = async (storeIn) => {
 const loadStores = (async () => {
   try {
     const { getHeaders } = commonService();
-    const stores = await axios.get(`${APP_URL}/api/store-registration/get-all-stores`, [], getHeaders());
+    const stores = await axios.get(`${APP_URL}/api/store-registration/get-all-stores`, getHeaders());
     const response = await stores.data;
     const storeList = response.data;
     $('#store-list').empty();

@@ -50,17 +50,13 @@
           <tr>
             <th>Motorcycle Id</th>
             <th>Motorcycle Name</th>
+            <th>Store Name</th>
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="moto-list">
           <tr>
-            <td>1</td>
-            <td>Indoro</td>
-            <td>
-              <button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-              <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-            </td>
+            <td colspan="4" class="text-center">No Data available.</td>
           </tr>
         </tbody>
       </table>

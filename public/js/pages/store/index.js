@@ -40,6 +40,7 @@ const storeRequest = async (storeIn) => {
     const response = store.data;
     hideSpinner($form);
     if (response.status_code === 1) {
+      location.reload();
       $('.success').removeClass('d-none');
       $('.error').addClass('d-none');
       return;
@@ -54,3 +55,29 @@ const storeRequest = async (storeIn) => {
   }
 }
 
+const loadStores = (async () => {
+  try {
+    const { getHeaders } = commonService();
+    const stores = await axios.get(`${APP_URL}/api/store-registration/get-all-stores`, [], getHeaders());
+    const response = await stores.data;
+    const storeList = response.data;
+    $('#store-list').empty();
+    for(let a = 0; a < storeList.length; a++) {
+      $('#store-list').append(`
+          <tr>
+            <td>${storeList[a].id}</td>
+            <td>${storeList[a].store_name}</td>
+            <td>${storeList[a].store_address}</td>
+            <td>${storeList[a].store_hours_from} - ${storeList[a].store_hours_to}</td>
+            <td>${storeList[a].store_owner}</td>
+            <td>
+              <button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+              <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+      `);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+})()

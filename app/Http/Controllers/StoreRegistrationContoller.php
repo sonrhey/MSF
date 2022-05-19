@@ -54,6 +54,16 @@ class StoreRegistrationContoller extends Controller
         //
     }
 
+    public function get_all_stores() {
+        $stores = StoreModel::where('added_by', Auth::user()->id)->get();
+
+        $this->response->status_code = 1;
+        $this->response->message = "success";
+        $this->response->data = $stores;
+
+        return response()->json($this->response);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -67,9 +77,28 @@ class StoreRegistrationContoller extends Controller
     
     public function get_my_stores() {
         $stores = StoreModel::where('added_by', Auth::user()->id)->get();
+
         $this->response->status_code = 1;
         $this->response->message = "success";
         $this->response->data = $stores;
+
+        return response()->json($this->response);
+    }
+
+    public function edit_my_store(Request $request) {
+        $store = StoreModel::find($request->id);
+        $store->store_name = $request->store_name;
+        $store->store_address = $request->store_address;
+        $store->store_origin_coords = $request->store_origin_coords;
+        $store->store_destination_coords = $request->store_destination_coords;
+        $store->store_owner = $request->store_owner;
+        $store->store_hours_from = $request->store_hours_from;
+        $store->store_hours_to = $request->store_hours_to;
+        $store->save();
+
+        $this->response->status_code = 1;
+        $this->response->message = "success";
+        $this->response->data = $store;
 
         return response()->json($this->response);
     }
@@ -103,8 +132,14 @@ class StoreRegistrationContoller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $store = StoreModel::find($request->id)->delete();
+
+        $this->response->status_code = 1;
+        $this->response->message = "success";
+        $this->response->data = $store;
+
+        return response()->json($this->response);
     }
 }

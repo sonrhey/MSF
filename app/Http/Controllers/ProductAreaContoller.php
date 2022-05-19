@@ -103,6 +103,18 @@ class ProductAreaContoller extends Controller
         //
     }
 
+    public function get_my_products() {
+        $products = ProductsModel::with('motorcycle', 'motorcycle.store')->whereHas('motorcycle.store', function($query) {
+            $query->where('added_by', Auth::user()->id);
+        })->get();
+
+        $this->response->status_code = 1;
+        $this->response->message = "success";
+        $this->response->data = $products;
+
+        return response()->json($this->response);
+    }
+
     public function search_item(Request $request) {
         $products = ProductsModel::with('motorcycle', 'motorcycle.store')->where('product_name', 'LIKE', '%' .$request->product_name. '%')->get();
         $m_products = array();

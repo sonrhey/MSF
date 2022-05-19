@@ -21,6 +21,7 @@ const productRequest = async (productIn) => {
     const response = product.data;
     hideSpinner($form);
     if (response.status_code === 1) {
+      location.reload();
       $('.success').removeClass('d-none');
       $('.error').addClass('d-none');
       return;
@@ -34,3 +35,31 @@ const productRequest = async (productIn) => {
     console.error(error);
   }
 }
+
+
+const loadProducts = ( async () => {
+  const { getHeaders } = commonService();
+  try {
+    const products = await axios.get(`${APP_URL}/api/product-area/get-my-products`, [], getHeaders());
+    const response = products.data;
+    const productList = response.data;
+    $('#product-list').empty();
+    for(let a = 0; a < productList.length; a++) {
+      $('#product-list').append(`
+          <tr>
+            <td>${productList[a].id}</td>
+            <td>${productList[a].product_name}</td>
+            <td>&#8369; ${productList[a].product_price}</td>
+            <td>${productList[a].product_stock}</td>
+            <td>${productList[a].motorcycle.motorcycle_name}</td>
+            <td>
+              <button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+              <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+      `);
+    }
+  } catch(error) {
+    console.error(error);
+  }
+})();

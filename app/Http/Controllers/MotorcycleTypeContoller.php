@@ -54,6 +54,18 @@ class MotorcycleTypeContoller extends Controller
         return response()->json($this->response);
     }
 
+    public function get_motorcycles() {
+        $motorcycles = MotorcyleTypeModel::with('store')->whereHas('store', function($query) {
+            $query->where('added_by', Auth::user()->id);
+        })->get();
+        
+        $this->response->status_code = 1;
+        $this->response->message = "success";
+        $this->response->data = $motorcycles;
+
+        return response()->json($this->response);
+    }
+
     /**
      * Display the specified resource.
      *

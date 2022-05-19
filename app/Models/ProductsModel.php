@@ -14,8 +14,7 @@ class ProductsModel extends Model
         'motorcycle_type_id',
         'product_name',
         'product_price',
-        'product_stock',
-        ''
+        'product_stock'
     ];
 
     public function motorcycle() {

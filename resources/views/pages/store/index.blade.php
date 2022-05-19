@@ -77,17 +77,9 @@
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="store-list">
           <tr>
-            <td>1</td>
-            <td>Motor Good</td>
-            <td>Kalye 123</td>
-            <td>08:00AM - 10:00PM</td>
-            <td>John Doe</td>
-            <td>
-              <button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-              <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-            </td>
+            <td colspan="6" class="text-center">No data currently available.</td>
           </tr>
         </tbody>
       </table>

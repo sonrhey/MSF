@@ -19,6 +19,7 @@ const motorcycleRequest = async (motorcycleIn) => {
     const response = motorcycle.data;
     hideSpinner($form);
     if (response.status_code === 1) {
+      location.reload();
       $('.success').removeClass('d-none');
       $('.error').addClass('d-none');
       return;
@@ -32,3 +33,28 @@ const motorcycleRequest = async (motorcycleIn) => {
     console.error(error);
   }
 }
+
+const loadMotoTypes = ( async () => {
+  const { getHeaders } = commonService();
+  try {
+    const moto = await axios.get(`${APP_URL}/api/motorcycle-type/get-motorcycles`, [], getHeaders());
+    const response = moto.data;
+    const motoList = response.data;
+    $('#moto-list').empty();
+    for(let a = 0; a < motoList.length; a++) {
+      $('#moto-list').append(`
+          <tr>
+            <td>${motoList[a].id}</td>
+            <td>${motoList[a].motorcycle_name}</td>
+            <td>${motoList[a].store.store_name}</td>
+            <td>
+              <button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+              <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+            </td>
+          </tr>
+      `);
+    }
+  } catch(error) {
+    console.error(error);
+  }
+})();

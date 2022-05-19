@@ -51,12 +51,11 @@
             <th>Motorcycle Id</th>
             <th>Motorcycle Name</th>
             <th>Store Name</th>
-            <th>Action</th>
           </tr>
         </thead>
         <tbody id="moto-list">
           <tr>
-            <td colspan="4" class="text-center">No Data available.</td>
+            <td colspan="3" class="text-center">No Data available.</td>
           </tr>
         </tbody>
       </table>

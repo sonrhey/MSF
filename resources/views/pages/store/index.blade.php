@@ -74,12 +74,11 @@
             <th>Store Address</th>
             <th>Store Hours</th>
             <th>Store Owner</th>
-            <th>Action</th>
           </tr>
         </thead>
         <tbody id="store-list">
           <tr>
-            <td colspan="6" class="text-center">No data currently available.</td>
+            <td colspan="5" class="text-center">No data currently available.</td>
           </tr>
         </tbody>
       </table>

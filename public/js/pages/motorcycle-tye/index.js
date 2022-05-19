@@ -47,10 +47,6 @@ const loadMotoTypes = ( async () => {
             <td>${motoList[a].id}</td>
             <td>${motoList[a].motorcycle_name}</td>
             <td>${motoList[a].store.store_name}</td>
-            <td>
-              <button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-              <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-            </td>
           </tr>
       `);
     }

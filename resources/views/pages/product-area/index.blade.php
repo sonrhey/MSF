@@ -63,12 +63,11 @@
             <th>Product Price</th>
             <th>Product Stock</th>
             <th>Motorycle Type</th>
-            <th>Action</th>
           </tr>
         </thead>
         <tbody id="product-list">
           <tr>
-            <td colspan="6" class="text-center">No data available.</td>
+            <td colspan="5" class="text-center">No data available.</td>
           </tr>
         </tbody>
       </table>

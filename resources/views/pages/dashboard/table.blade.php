@@ -1,18 +1,8 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Product Name</th>
-      <th>Product Price</th>
-      <th>Total Sold</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Test Item</td>
-      <td>15.00</td>
-      <td>200</td>
-    </tr>
-  </tbody>
-</table>
+<h4 class="text-center">Welcome to <b>Moto Finder Store.</b></h4>
+<hr>
+<div class="text-center">
+<div class="avatar avatar-xl text-center">
+  <img src="assets/images/faces/1.jpg" alt="Face 1">
+</div>
+<h1 class="auth-name"></h1>
+</div>

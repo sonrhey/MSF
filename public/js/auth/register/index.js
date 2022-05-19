@@ -25,7 +25,7 @@ const registerRequest = async (request) => {
       return;
     }
     setUserAndToken(response.data.user, response.data.token);
-    window.location = '/dashboard';
+    window.location = '/login';
   } catch (error) {
     $('.error-login').removeClass('d-none');
     hideSpinner($form);

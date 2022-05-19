@@ -52,10 +52,6 @@ const loadProducts = ( async () => {
             <td>&#8369; ${productList[a].product_price}</td>
             <td>${productList[a].product_stock}</td>
             <td>${productList[a].motorcycle.motorcycle_name}</td>
-            <td>
-              <button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-              <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-            </td>
           </tr>
       `);
     }

@@ -70,10 +70,6 @@ const loadStores = (async () => {
             <td>${storeList[a].store_address}</td>
             <td>${storeList[a].store_hours_from} - ${storeList[a].store_hours_to}</td>
             <td>${storeList[a].store_owner}</td>
-            <td>
-              <button type="button" class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-              <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-            </td>
           </tr>
       `);
     }

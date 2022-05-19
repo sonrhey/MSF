@@ -49,7 +49,6 @@ class APIAuthController extends Controller
 
 
         if (Auth::attempt($credentials)) { 
-            $request->session()->regenerate();
             return true;
         }
         return false;

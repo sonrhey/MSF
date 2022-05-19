@@ -27,9 +27,7 @@ Route::get('/', function () {
 Route::resource('login', APIAuthController::class);
 Route::resource('register', APIRegisterController::class);
 
-Route::middleware(['auth:sanctum'])->group(function () {
-	Route::resource('dashboard', DashboardController::class);
-	Route::resource('store-registration', StoreRegistrationContoller::class);
-	Route::resource('product-area', ProductAreaContoller::class);
-	Route::resource('motorcycle-type', MotorcycleTypeContoller::class);
-});
+Route::resource('dashboard', DashboardController::class);
+Route::resource('store-registration', StoreRegistrationContoller::class);
+Route::resource('product-area', ProductAreaContoller::class);
+Route::resource('motorcycle-type', MotorcycleTypeContoller::class);

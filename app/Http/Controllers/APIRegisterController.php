@@ -49,8 +49,6 @@ class APIRegisterController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        $request->session()->regenerate();
-        
         $token = $user->createToken("token");
         $this->response->status_code = 1;
         $this->response->message = "success";

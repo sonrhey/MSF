@@ -118,6 +118,8 @@ class ProductAreaContoller extends Controller
                 "product_price" => $product->product_price,
                 "store_name" => $product->motorcycle->store->store_name,
                 "store_location" => $product->motorcycle->store->store_address,
+                "lat" => $product->motorcycle->store->store_origin_coords,
+                "long" => $product->motorcycle->store->store_destination_coords,
                 "motorcyle_type" => $product->motorcycle->motorcycle_name,
                 "distance" => $this->calculate_distance($latitude_from, $longitude_from, $origin, $destination)
             ]);

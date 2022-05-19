@@ -17,4 +17,8 @@ class ProductsModel extends Model
         'product_stock',
         ''
     ];
+
+    public function motorcycle() {
+        return $this->belongsTo(MotorcyleTypeModel::class, 'motorcycle_type_id', 'id');
+    }
 }

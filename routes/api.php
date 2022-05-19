@@ -29,3 +29,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('motorcycle-type/store', [MotorcycleTypeContoller::class, 'store']);
     Route::post('product-area/store', [ProductAreaContoller::class, 'store']);
 });
+
+Route::post('product-area/search-item', [ProductAreaContoller::class, 'search_item']);

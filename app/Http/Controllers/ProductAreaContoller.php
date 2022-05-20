@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MotorcyleTypeModel;
+use App\Models\ProductInventory;
 use App\Models\ProductsModel;
 use App\Models\ResponseModel;
 use Illuminate\Http\Request;
@@ -28,6 +29,30 @@ class ProductAreaContoller extends Controller
 
         return view('pages.product-area.index', compact('motorcycles'));
         //
+    }
+
+    public function update_my_products(Request $request) {
+        $products = ProductsModel::find($request->id);
+
+        $product_history = new ProductInventory();
+        $product_history->product_id = $products->id;
+        $product_history->old_stock = $products->product_stock;
+        $product_history->new_stock = $request->product_stock;
+        $product_history->old_price = $products->product_price;
+        $product_history->new_price = $request->product_price;
+        $product_history->save();
+
+        $products->motorcycle_type_id = $request->motorcycle_type_id;
+        $products->product_name = $request->product_name;
+        $products->product_price = $request->product_price;
+        $products->product_stock = $request->product_stock;
+        $products->save();
+
+        $this->response->status_code = 1;
+        $this->response->message = "success";
+        $this->response->data = $products;
+
+        return response()->json($this->response);
     }
 
     /**

@@ -26,6 +26,12 @@
         <span>Motorcycle Type</span>
       </a>
     </li>
+    <li class="sidebar-item {{ (request()->is('motorcycle-type*')) ? 'active' : '' }}">
+      <a href="/sales" class='sidebar-link'>
+        <i class="bi bi-list"></i>
+        <span>Sales Report</span>
+      </a>
+    </li>
     <li class="sidebar-item">
       <form id="logout">
         @csrf

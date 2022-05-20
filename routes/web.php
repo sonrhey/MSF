@@ -5,6 +5,7 @@ use App\Http\Controllers\APIRegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MotorcycleTypeContoller;
 use App\Http\Controllers\ProductAreaContoller;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\StoreRegistrationContoller;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,5 @@ Route::resource('dashboard', DashboardController::class);
 Route::resource('store-registration', StoreRegistrationContoller::class);
 Route::resource('product-area', ProductAreaContoller::class);
 Route::resource('motorcycle-type', MotorcycleTypeContoller::class);
+
+Route::get('sales', [SalesController::class, 'index']);

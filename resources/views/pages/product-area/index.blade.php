@@ -7,6 +7,9 @@
       <div class="alert alert-success success d-none" role="alert">
         <strong>Success!</strong> Motorcycle saved successfuly.
       </div>
+      <div class="alert alert-success updated d-none" role="alert">
+        <strong>Success!</strong> Motorcycle updated successfuly.
+      </div>
       <div class="alert alert-danger error d-none" role="alert">
         <strong>Error!</strong> Something went wrong.
       </div>
@@ -63,6 +66,7 @@
             <th>Product Price</th>
             <th>Product Stock</th>
             <th>Motorycle Type</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody id="product-list">
